@@ -1,0 +1,157 @@
+/* Fountain container styling with instant color flip */
+.fountain-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f0f8ff;
+    overflow: hidden; /* Ensures flies, frog, and grass stay within the screen */
+    animation: backgroundChange 60s steps(1, start) infinite; /* Slow, instant color flip */
+
+}
+
+/* Define the keyframes for background color variation */
+@keyframes backgroundChange {
+    0% { background-color: #FFD700; } /* Gold */
+    50% { background-color: #9ACD32; } /* Light Green */
+    100% { background-color: #FFD700; } /* Back to Gold */
+}
+
+/* Fountain structure with color switching */
+.fountain {
+    position: relative;
+    width: 150px;
+    height: 300px;
+    background: mintcream;
+    border-radius: 50%;
+    overflow: hidden;
+    transform: rotate(90deg);
+    z-index: 2;
+    animation: fountainColorChange 60s steps(1, start) infinite; /* Fountain color switch */
+    cursor: pointer; /
+}
+
+/* Keyframes for fountain color change */
+@keyframes fountainColorChange {
+    0% { background-color: mintcream; } /* Mint when background is Gold */
+    50% { background-color: lightskyblue; } /* Lightskyblue when background is Light Green */
+    100% { background-color: mintcream; } /* Back to Mint */
+}
+
+/* Water elements */
+.water {
+    position: absolute;
+    bottom: 0;
+    width: 10px;
+    height: 0;
+    background: blue;
+    border-radius: 50%;
+    animation: fountainFlow 2s linear infinite; /* Water animation */
+    opacity: 0.8;
+}
+
+.water-center {
+    left: 50%;
+    transform: translateX(-50%) rotate(-90deg);
+    animation-delay: 0s;
+}
+
+.water-left {
+    left: 30%;
+    transform: rotate(-90deg);
+    animation-delay: 0.5s;
+}
+
+.water-right {
+    left: 70%;
+    transform: rotate(-90deg);
+    animation-delay: 1s;
+}
+
+@keyframes fountainFlow {
+    0% {
+        height: 0;
+        transform: translateY(0) scaleX(1);
+        opacity: 0.8;
+    }
+    30% {
+        height: 300px;
+        transform: translateY(0) scaleX(1);
+        opacity: 1;
+    }
+    60% {
+        height: 300px;
+        transform: translateY(-200px) scaleX(1.5);
+        opacity: 0.6;
+    }
+    100% {
+        height: 0;
+        transform: translateY(-300px) scaleX(2);
+        opacity: 0;
+    }
+}
+
+
+
+/* Einheitliche Fly-Styling für alle Vögel */
+.fly {
+    position: absolute;
+    width: 150px; /* Einheitliche Breite */
+    height: 150px; /* Einheitliche Höhe */
+    background-size: contain; /* SVGs proportional skalieren */
+    background-repeat: no-repeat; /* Keine Wiederholung der Bilder */
+    background-position: center; /* Zentriert die Bilder */
+    z-index: 3;
+}
+
+/* Spezifische Hintergrundbilder für die Vögel */
+.fly-1 {
+    background-image: url('vogel1.svg'); /* Stelle sicher, dass die Pfade zu den SVGs korrekt sind */
+    cursor: pointer; /
+}
+
+.fly-2 {
+    background-image: url('Fliege.svg'); /* Hier den Pfad zu vogel2.svg verwenden */
+    cursor: pointer; /
+}
+
+.fly-3 {
+    background-image: url('vogel3.svg'); /* Hier den Pfad zu vogel3.svg verwenden */
+    cursor: pointer; /* Zeigt an, dass der Vogel klickbar ist */
+}
+
+
+/* Grass style */
+.grass {
+    position: absolute;
+    width: 5px;
+    height: 30px;
+    background: green;
+    border-radius: 5px;
+}
+
+/* Frog styling */
+.frog {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: url('frog.svg') no-repeat center center;
+    background-size: cover;
+    z-index: 4;
+    top: 400%;
+    left: 180%;
+    transform: rotate(-90deg);
+}
+.kaefer {
+    position: fixed;
+    bottom: 0;
+    left: 30px;
+    width: 50px;
+    height: auto;
+    background-color: red; /* Temporary color for visibility */
+    z-index: 999;
+}
+
+}
+
